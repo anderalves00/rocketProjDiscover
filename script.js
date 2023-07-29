@@ -12,10 +12,10 @@ function toggleMode() {
   */
   const img = document.querySelector("#profile img")                      //.querySelector permite acesso ao ('seletor CSS indicado')
   if (html.classList.contains("light")) {
-    img.setAttribute("src", "./assets/avatar-light.png")                  //.setAttribute permite alterar o ('atributo informado', 'pela alteração indicada')
+    img.setAttribute("src", "./assets/andy-avatar-light.jpg")                  //.setAttribute permite alterar o ('atributo informado', 'pela alteração indicada')
     img.setAttribute("alt", "Foto de perfil do usuário no modo light")
   } else {
-    img.setAttribute("src", "./assets/avatar.png")
+    img.setAttribute("src", "./assets/andy-avatar-dark.jpg")
     img.setAttribute("alt", "Foto de perfil do usuário no modo dark")
   }
 }

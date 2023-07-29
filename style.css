@@ -55,7 +55,8 @@ body * {
 #profile img {
     display: block;                                             /*Tag img por padrão tem display inline (não aceita margin)*/
     width: 112px;
-    margin: auto;                                               
+    margin: auto;
+    border-radius: 50%;                                               
 }
 
 #profile p {
