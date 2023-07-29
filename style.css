@@ -1,0 +1,194 @@
+* {                                                             /*Reseta configurações padrões do CSS*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --hightlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --hightlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+    background: var(--bg-url);                                  /*Insere uma imagem e usa como plano de fundo*/
+    background-repeat: no-repeat;                               /*Altera o padrão de repetição de imagem*/
+    background-position: top center;                            /*Alinha a imagem no centro da página considerando os eixo X e Y*/
+    background-size: cover;                                     /*Define que a imagem ocupará todo o espaço disponível*/
+    height: 100vh;                                              /*Define que o conteúdo da tag selecionada ocupa a altura total do dispositivo*/
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);                                   /*Define a cor padrão das fontes adicionadas ao elemento*/
+}
+
+#container {
+    width: 100%;                                                /*Define a largura da tag selecionada*/
+    max-width: 588px;                                           /*Define a largaura máxima que o conteúdo poderá ter independente da largura do dispositivo*/
+    margin: 56px auto 0px;                                      /*Define o alinhamento da tag seleciona (centralizado - eixo X e Y) (regra CSS desabilita o eixo Y)*/
+                                                                    /*Tag div por padrão é display block (aceita margin)*/
+    padding-top: 0 24px;                                        /*Define preenchimento interno da tag selecionada*/
+}                                                                   
+
+/*PROFILE*/
+
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+    display: block;                                             /*Tag img por padrão tem display inline (não aceita margin)*/
+    width: 112px;
+    margin: auto;                                               
+}
+
+#profile p {
+    font-weight: 500;                                           /*Define a espessura da fonte utilizada*/
+    line-height: 24px;                                          /*Define o espaçamento da linha que a fonte está inserida*/
+    margin-top: 8px;
+}
+
+/*SWITCH*/
+
+#switch {
+    position: relative;    
+    width: 64px;
+    margin: 4px auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    animation: slide-back 0.2s                                  /*Incorpora ao elemento a animação criar por @keyframe e define o tempo de duração*/
+}
+
+.light #switch button {
+    animation: slide-in 0.2s forwards;                          /*forwards indica que o elemento deve manter a última posição indicada*/
+}
+
+#switch button:hover{                                           /*Possibilita adicionar aos elementos alterações quando ao passar do mouse */
+    outline: 8px solid var(--hightlight-color);
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/*LINKS*/
+
+ul {
+    list-style: none;                                           /*Remove os marcadores*/
+    display: flex;                                              /*Adiciona o elemento o modo de alinhamento flex-box*/
+    flex-direction: column;                                     /*Altera o direcionamento padrão do flex-box de row para column*/
+    gap: 16px;                                                  /*Separa os elementos deixando o espaço indicado entre eles*/
+    padding: 24px 0px;
+}
+
+ul li a {
+    display: flex;                                              /*Habilita alinhamento Flex-box aos elementos (por padrão row)*/
+    align-items: center;                                        /*Alinha os elementos ao centro (considerando o eixo Y do alinhamento definido no flex-box)*/
+    justify-content: center;                                    /*Alinha os elementos ao centro (considerando o eixo X do alinhamento definido no flex-box)*/
+    padding: 16px 24px;
+    background: var(--surface-color);                           /*Define cor do background utilizando cores RGBA (vermelho, verde, azul, alpha)*/
+                                                                    /*Cores variam de 0 a 255*/
+                                                                    /*Alpha (transparência) vaira de 0 a 1*/
+    border: 1px solid var(--stroke-color);                      /*Define a borda da tag selecionada*/
+    border-radius: 8px;                                         /*Adiciona arredondamento nas bordas do elemento*/
+    backdrop-filter: blur(4px);                                 /*Adiciona efeito visual no elemento -> VERIFICAR -webkit-backdrop-filter*/
+    text-decoration: none;                                      /*Define estilos do texto*/
+    font-weight: 500;
+    transition: background 0.2s;                                /*Adiciona aos elementos um efeito de transição entre as alterações*/
+}
+
+ul li a:hover {
+    background: var(--surface-color-hover);
+    border: 1.5px solid white;                                
+}
+
+/*SOCIAL LINKS*/
+
+#social-links {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    font-size: 24px;    
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+
+#social-links a:hover {
+    background: var(--hightlight-color);
+}
+
+footer {
+    padding: 24px 0px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/*MEDIA QUERIES*/
+@media (min-width: 700px) {                                      /*Permite definir o comportamento dos elementos com base no dispositivo ativo*/
+    :root {
+        --bg-url: url(./assets/bg-desktop.jpg);
+    }
+
+    .light {
+        --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+}
+
+/*ANIMAÇÃO*/
+@keyframes slide-in {                                            /*Permite criar animações no CSS para melhorar a qualidade visual dos elementos*/
+    from {                                                       /*Indica o ínicio da animação*/
+        left: 0;
+    }
+    to {                                                       /*Indica o fim da animação*/
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {                                            /*Permite criar animações no CSS para melhorar a qualidade visual dos elementos*/
+    from {                                                       /*Indica o ínicio da animação*/
+        left: 50%;
+    }
+    to {                                                       /*Indica o fim da animação*/
+        left: 0;
+    }
+}
